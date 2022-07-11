@@ -27,14 +27,10 @@ app.get("/api/hello", function (req, res) {
 
 // Whoami endpoint
 app.get("/api/whoami", (req, res) => {
-  const ip = req.ip;
-  const language = req.get('accept-language');
-  const software = req.get('user-agent');
-
   res.json({
-    "ipaddress": ip,
-    "language": language,
-    "software": software
+    "ipaddress": req.ip,
+    "language": req.get('accept-language'),
+    "software": req.get('user-agent')
   })
 });
 
